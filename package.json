@@ -2,32 +2,45 @@
   "name": "angularjs-jest",
   "version": "1.1.0",
   "description": "AngularJs with Jest example",
+  "author": "",
+  "license": "ISC",
+  "private": true,
   "scripts": {
     "start": "webpack-dev-server --open",
     "test": "jest --coverage",
-    "api": "json-server --watch db.json"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "angular": "^1.6.6"
+    "server": "node server.js",
+    "api": "json-server --watch db.json",
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "jest": {
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1"
     }
   },
+  "dependencies": {
+    "angular": "^1.6.6",
+    "lodash": "^4.17.10"
+  },
   "devDependencies": {
     "angular-mocks": "^1.6.6",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
+    "express": "^4.16.3",
+    "file-loader": "^1.1.11",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
     "jest-cli": "^21.2.1",
     "json-server": "^0.14.0",
     "style-loader": "^0.21.0",
     "webpack": "^4.16.1",
     "webpack-cli": "^3.0.8",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-middleware": "^3.1.3",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-hot-middleware": "^2.22.3",
+    "webpack-merge": "^4.1.3"
   }
 }

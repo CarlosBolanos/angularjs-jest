@@ -1,40 +1,46 @@
 const path = require('path');
-var MODULES = ['./', 'node_modules'];
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: {
-        app: './src/app.js',
-        core: './src/core.js'
-    },
     mode:'development',
-    devtool: '#source-map',
-    resolve: {
-      modules: MODULES,      
-    },
-    devServer: {
-        contentBase: './dist'
+    entry: {
+        app: './src/app.js'
     },
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/'
     },
+    devServer: {
+        contentBase: './dist'
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'AngularJS testing'
+        })
+    ],
     module: {
         rules: [
-            {
-                test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader'
+        {
+            test: /\.css$/,
+            use: [ 'style-loader', 'css-loader' ]
+        },
+        {
+            test: /\.(png|svg|jpg|gif)$/,
+            use: [
+                'file-loader'
+            ]
+        },
+        {
+            test: /\.(html)$/,
+            use: {
+                loader: 'html-loader',
+                options: {
+                attrs: [':data-src']
                 }
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
+            }
             }
         ]
-    }
+    },
+    devtool:'inline-source-map'
 };

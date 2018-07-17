@@ -1,17 +1,25 @@
+import _ from 'lodash';
+import printMe from './print';
 import './app.css';
 
-angular.module('angular-test', [
-        require('./mathservice').name
-    ])
-    .controller('homeController', ['$scope','postService', function($scope, postService){
-        $scope.greeting = 'hello world!!';
-        
-        postService.get().then(response => {
-            $scope.posts = response.data;
-        })
-    }])
-    .service('postService', () => {
-        this.get = ($http, API_BASE_URL) => {
-            return $http.get(`${API_BASE_URL}/posts`);
-        }
-    })
+function component() {
+    var element = document.createElement('div');
+    var btn = document.createElement('button');
+
+    // Lodash, currently included via a script, is required for this line to work
+    element.innerHTML = _.join(['hello', 'webpack'], ' ');
+    element.classList.add('hello');
+
+    btn.innerHTML = 'Click me and check the console!';
+    btn.onclick = printMe;
+    element.appendChild(btn);
+
+    return element;
+  }
+  
+  document.body.appendChild(component());
+
+
+if (module.hot) {
+    module.hot.accept('./app.js')
+}
