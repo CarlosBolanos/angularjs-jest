@@ -5,7 +5,8 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        app: './src/app.js'
+        core: './src/core.js',
+        app: './src/app.js'        
     },
     output: {
         filename: '[name].bundle.js',
