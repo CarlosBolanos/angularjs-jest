@@ -6,12 +6,11 @@
   "license": "ISC",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server --config webpack.dev.js",
     "test": "jest --coverage",
     "server": "node server.js",
     "api": "json-server --watch db.json",
-    "build": "webpack",
-    "watch": "webpack --watch"
+    "build": "webpack --config webpack.prod.js"
   },
   "jest": {
     "moduleNameMapper": {

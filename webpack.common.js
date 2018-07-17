@@ -1,8 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
-    mode:'development',
     entry: {
         app: './src/app.js'
     },
@@ -11,10 +13,9 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/'
     },
-    devServer: {
-        contentBase: './dist'
-    },
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             title: 'AngularJS testing'
         })
@@ -36,11 +37,10 @@ module.exports = {
             use: {
                 loader: 'html-loader',
                 options: {
-                attrs: [':data-src']
+                    attrs: [':data-src']
+                    }
                 }
             }
-            }
         ]
-    },
-    devtool:'inline-source-map'
+    }
 };
