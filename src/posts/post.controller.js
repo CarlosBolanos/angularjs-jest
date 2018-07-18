@@ -1,8 +1,9 @@
 angular.module('angular-test')
-.controller('homeController', ['$scope', '$rootScope', '$timeout', 'postService', 'exceptionHandler',
+.controller('postsController', ['$scope', '$rootScope', '$timeout', 'postService', 'exceptionHandler',
     function($scope, $rootScope, $timeout, postService, exceptionHandler) {
     // $rootScope.loading = true;
 
+    $scope.greeting = 'hello world!';
     postService.get()
         .then(split)
         .catch(exceptionHandler.throwError);   
@@ -37,3 +38,6 @@ angular.module('angular-test')
         };
     }
 ]);
+
+require('./pinned/pinnedPosts.component')
+require('./recent/recentPosts.component')
