@@ -17,6 +17,8 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
+            filename: './index.html',
+            template: './index.html',
             title: 'AngularJS testing'
         })
     ],
