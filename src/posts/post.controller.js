@@ -1,19 +1,17 @@
 angular.module('angular-test')
-.controller('postsController', ['$scope', '$rootScope', '$timeout', 'postService', 'exceptionHandler',
-    function($scope, $rootScope, $timeout, postService, exceptionHandler) {
-    // $rootScope.loading = true;
+    .controller('postsController', ['$scope', '$rootScope', '$timeout', 'postService', 'exceptionHandler',
+        function($scope, $rootScope, $timeout, postService, exceptionHandler) {
+        // $rootScope.loading = true;
+        postService.get()
+            .then(split)
+            .catch(exceptionHandler.throwError);   
 
-    $scope.greeting = 'hello world!';
-    postService.get()
-        .then(split)
-        .catch(exceptionHandler.throwError);   
+        function split(posts) {    
+            $scope.posts = posts;
+            $rootScope.loading = false;
+        }
 
-    function split(posts) {    
-        $scope.posts = posts;
-        $rootScope.loading = false;
-    }
-
-}])
+    }])
 .service('postService', ['$q', '$http', 'API_BASE_URL',
     function($q, $http, API_BASE_URL) {
         this.get = () => {
@@ -39,5 +37,6 @@ angular.module('angular-test')
     }
 ]);
 
+require('./post/post.component');
 require('./pinned/pinnedPosts.component')
 require('./recent/recentPosts.component')

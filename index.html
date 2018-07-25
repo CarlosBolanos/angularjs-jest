@@ -30,12 +30,8 @@
 
         <div class="content pure-u-1 pure-u-md-3-4" >
             <div ng-controller="postsController">   
-              {{greeting}}             
-              <pre>
-                  {{posts.pinned}}
-              </pre>
-                <pinned-posts posts="posts.pinned"></pinned-posts>
-                <recent-posts posts="posts.recent"></recent-posts> -->
+                <pinned-posts ng-if="posts && posts.pinned" pinned="posts.pinned"></pinned-posts>
+                <recent-posts ng-if="posts && posts.recent" recent="posts.recent"></recent-posts>
                 <app-footer></app-footer>              
             </div>
         </div>

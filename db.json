@@ -8,8 +8,8 @@
         "name":"Tilo Mitra",
         "profile_image":"https://purecss.io/img/common/tilo-avatar.png"
       },
-      "content": "Yesterday at CSSConf, we launched Pure – a new CSS library. Phew! Here are the slides from the presentation. Although it looks pretty minimalist, we’ve been working on Pure for several months. After many iterations, we have released Pure as a set of small, responsive, CSS modules that you can use in every web project.",
-      "tags": ["CSS", "Pure"]      
+      "content": "Yesterday at CSSConf, we launched Pure – a new CSS library. Phew! <a href=\"https://speakerdeck.com/tilomitra/pure-bliss\"> Here are the slides from the presentation</a>. Although it looks pretty minimalist, we’ve been working on Pure for several months. After many iterations, we have released Pure as a set of small, responsive, CSS modules that you can use in every web project.",
+      "tags": [{"type":"design", "name":"CSS"}, {"type":"pure", "name":"Pure"}]      
     },
     {
       "id": 2,
@@ -20,33 +20,33 @@
         "profile_image":"https://purecss.io/img/common/ericf-avatar.png"
       },
       "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      "tags": ["Javascript"]      
+      "tags": [{"type":"js", "name":"Javascript"}]      
     },
     {
       "id": 3,
       "type":"recent",
-      "title": "Everything You Need to Know About Grunt",
+      "title": "Photos from CSSConf and JSConf",
       "author": {
         "name":"Reid Burke",
         "profile_image":"https://purecss.io/img/common/reid-avatar.png"
       },
       "content":"",
       "images": [
-        {"meta":"CSSConf Photos", "url":"http://farm8.staticflickr.com/7448/8915936174_8d54ec76c6.jpg"},
-        {"meta":"JSConf Photos", "url":"http://www.flickr.com/photos/uberlife/8907351301/"}
+        {"meta":"CSSConf Photos", "href":"http://www.flickr.com/photos/uberlife/8915936174/", "url":"http://farm8.staticflickr.com/7448/8915936174_8d54ec76c6.jpg"},
+        {"meta":"JSConf Photos", "href":"http://www.flickr.com/photos/uberlife/8907351301/", "url":"http://farm8.staticflickr.com/7382/8907351301_bd7460cffb.jpg"}
       ],
       "tags": ["Uncategorized"]      
     },
     {
       "id": 3,
       "type":"recent",
-      "title": "Everything You Need to Know About Grunt",
+      "title": "YUI 3.10.2 Released",
       "author": {
         "name":"Andrew Wooldridge",
         "profile_image":"https://purecss.io/img/common/andrew-avatar.png"
       },
       "content": "We are happy to announce the release of YUI 3.10.2! You can find it now on the Yahoo! CDN, download it directly, or pull it in via npm. We’ve also updated the YUI Library website with the latest documentation.",
-      "tags": ["YUI"]      
+      "tags": [{"type":"yui", "name":"YUI"}]      
     }
   ],
   "comments": [
