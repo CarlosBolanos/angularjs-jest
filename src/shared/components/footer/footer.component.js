@@ -1,4 +1,4 @@
-angular.module('angular-test')
+require('sharedModule')
     .directive('appFooter', function(){        
         return {
             template: require('./footer.component.html'),

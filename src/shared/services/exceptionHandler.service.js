@@ -1,8 +1,6 @@
-angular.module('angular-test')
-    .service('exceptionHandler', ['$rootScope',
-        function($rootScope){
-            this.throwError = () => {
-                $rootScope.loading = false;            
-            }
+require('sharedModule')
+    .service('exceptionHandler', function($rootScope){
+        this.throwError = () => {
+            $rootScope.loading = false;            
         }
-    ]);
+    });

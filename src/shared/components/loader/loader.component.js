@@ -1,7 +1,7 @@
 
 import './loader.component.css';
 
-angular.module('angular-test')
+require('sharedModule')
     .component('appLoader', {
         template: require('./loader.component.html')
     })

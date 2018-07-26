@@ -1,4 +1,4 @@
-angular.module('angular-test')
+require('postsModule')
     .component('pinnedPost', {
         template: require('./post.component.html'),
         bindings: { post: '<' },

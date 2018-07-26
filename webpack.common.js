@@ -3,10 +3,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
+var ALIAS = {
+    'postsModule': path.join(__dirname, 'src/posts/posts.module'),
+    'sharedModule': path.join(__dirname, 'src/shared')
+};
+
 module.exports = {
     entry: {
         core: './src/core.js',
         app: './src/app.js'        
+    },
+    resolve: {
+        alias: ALIAS
     },
     output: {
         filename: '[name].bundle.js',
