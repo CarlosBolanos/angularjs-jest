@@ -14,8 +14,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "@(.*)$": "<rootDir>/src/$1",
-      "postsModule": "<rootDir>/test/unit/mock.module.js"
+      "@(.*)$": "<rootDir>/src/$1"
     }
   },
   "dependencies": {

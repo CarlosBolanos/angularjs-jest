@@ -28,10 +28,7 @@ angular.module('angular.jest.posts')
         };
     });
 
-    
-
-
-{
+  {
     // import PostsListModel from './postsList.model';
 
     // class PostService {
@@ -57,5 +54,5 @@ angular.module('angular.jest.posts')
     // }
     // angular.module('angular.jest.posts')  
     //  .service('postService', PostService);
-}
     
+  }
