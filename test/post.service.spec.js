@@ -27,8 +27,8 @@ describe('posts.service tests', () => {
                 recent: [ { id: 2, type: 'recent' } ] 
             }
 
-            $httpBackend.expectGET(API_BASE_URL+'posts').respond(200, mockResponse);
-            
+            $httpBackend.expectGET(API_BASE_URL+'/posts').respond(200, mockResponse);
+                    
             let result;
             postService.get().then(response => {
                 result = response;
@@ -41,10 +41,9 @@ describe('posts.service tests', () => {
 
     it('if GET:posts return 0 rows -> postService.get return an empty object', 
         inject(($httpBackend, postService, API_BASE_URL) => {
-            var mockResponse = [ ];
-            const splitPosts = {  pinned: [ ], recent: [ ]  }
+            var mockResponse = {};
 
-            $httpBackend.expectGET(API_BASE_URL+'posts').respond(200, mockResponse);
+            $httpBackend.expectGET(API_BASE_URL+'/posts').respond(200, mockResponse);
             
             let result;
             postService.get().then(response => {
@@ -53,15 +52,15 @@ describe('posts.service tests', () => {
             
             $httpBackend.flush();
 
-            expect(result).toEqual(splitPosts);
+            expect(result.pinned).toEqual([]);
+            expect(result.recent).toEqual([]);
     }));
 
     it('if GET:posts fails -> postService.get return empty object', 
         inject(($httpBackend, postService, API_BASE_URL) => {
-            var mockResponse = [ ];
-            const defaultModel = {  pinned: [ ], recent: [ ]  }
+            var mockResponse = {};
 
-            $httpBackend.expectGET(API_BASE_URL+'posts').respond(500, mockResponse);
+            $httpBackend.expectGET(API_BASE_URL+'/posts').respond(500);
             
             let result;
             postService.get().then(response => {
@@ -69,14 +68,12 @@ describe('posts.service tests', () => {
             });
             
             $httpBackend.flush();
-
-            expect(result).toEqual(defaultModel);
+            expect(result.pinned).toEqual([]);
+            expect(result.recent).toEqual([]);
     }));
-
 
     afterEach(inject($httpBackend => {
         $httpBackend.verifyNoOutstandingExpectation();
         $httpBackend.verifyNoOutstandingRequest();
     }));
-
 });
