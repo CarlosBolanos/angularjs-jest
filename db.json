@@ -35,7 +35,7 @@
         {"meta":"CSSConf Photos", "href":"http://www.flickr.com/photos/uberlife/8915936174/", "url":"http://farm8.staticflickr.com/7448/8915936174_8d54ec76c6.jpg"},
         {"meta":"JSConf Photos", "href":"http://www.flickr.com/photos/uberlife/8907351301/", "url":"http://farm8.staticflickr.com/7382/8907351301_bd7460cffb.jpg"}
       ],
-      "tags": ["Uncategorized"]      
+      "tags": [{"type":"none", "name":"Uncategorized"}]      
     },
     {
       "id": 3,

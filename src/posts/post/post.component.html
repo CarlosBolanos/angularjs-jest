@@ -1,29 +1,26 @@
 <section class="post">
     <header class="post-header">
-        <img width="48" height="48" class="post-avatar" ng-src="{{$ctrl.post.author.profile_image}}">
-        <h2 class="post-title">{{$ctrl.post.title}}</h2>
+        <img width="48" height="48" class="post-avatar" ng-src="{{$ctrl.data.author.profile_image}}">
+        <h2 class="post-title">{{$ctrl.data.title}}</h2>
         <p class="post-meta">
-            By <a href="#" class="post-author">{{$ctrl.post.author.name}}</a> under 
-            <span class="tags" ng-repeat="cat in $ctrl.post.tags">
+            By <a href="#" class="post-author">{{$ctrl.data.author.name}}</a> under 
+            <span class="tags" ng-repeat="cat in $ctrl.data.tags">
                 <a class="post-category post-category-{{cat.type}}" href="#">{{cat.name}}</a> 
             </span>
         </p>
     </header>
 
     <div class="post-description">
-        <div ng-if="$ctrl.post.images" class="post-images pure-g">
-            <!--{"meta":"CSSConf Photos", "url":"http://farm8.staticflickr.com/7448/8915936174_8d54ec76c6.jpg"},-->
-           
-
-            <div class="pure-u-1 pure-u-md-1-2" ng-repeat="img in $ctrl.post.images">
-                    <a href="{{img.href}}">
-                        <img alt="Photo of someone working poolside at a resort" class="pure-img-responsive" ng-src="{{img.url}}">
-                    </a>
-                    <div class="post-image-meta">
-                        <h3>{{img.meta}}</h3>
-                    </div>
-                </div> 
+        <div ng-if="$ctrl.data.images" class="post-images pure-g">
+            <div class="pure-u-1 pure-u-md-1-2" ng-repeat="img in $ctrl.data.images">
+                <a href="{{img.href}}">
+                    <img alt="Photo of someone working poolside at a resort" class="pure-img-responsive" ng-src="{{img.url}}"/>
+                </a>
+                <div class="post-image-meta">
+                    <h3>{{img.meta}}</h3>
+                </div>
+            </div> 
         </div>
-        <p if="$ctrl.post.content" ng-bind-html="$ctrl.post.content"></p>
+        <p class="post-content" if="$ctrl.data.content" ng-bind-html="$ctrl.data.content"></p>
     </div>
 </section>
