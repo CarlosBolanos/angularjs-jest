@@ -1,4 +1,4 @@
-angular.module('angular.jest.posts')    
+angular.module('angular.jest.posts')
 .controller('postsController',  
     function($scope, $rootScope, postService, exceptionHandler) {
         $rootScope.loading = true;    

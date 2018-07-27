@@ -5,7 +5,7 @@ const $ = require('jquery');
 const dbData = require('@/../db.json');
 
 describe('post.component tests', () => {
-    let _$scope, _$compile, _$componentController;
+    let _$scope, _$compile;
     let postData, element;
     
     beforeAll(() => {
@@ -22,18 +22,16 @@ describe('post.component tests', () => {
         element = angular.element('<post data="data"></post-component>');
         element = _$compile(element)(_$scope)
         _$scope.$apply();
-        _$ctrl = _$componentController('post');
     }
 
-    beforeEach(inject(($rootScope, $sce, $compile, $componentController) => {
+    beforeEach(inject(($rootScope, $compile) => {
         _$scope = $rootScope.$new();
-        _$compile = $compile;    
-        _$componentController = $componentController;
+        _$compile = $compile;
 
         _$scope.data = postData;
     }));
     
-    it('it should render the component', () => {
+    it('should render the post component with html content', () => {
         compileComponent();
         expect($(element).find('.post-title').text()).toEqual(postData.title);
         expect($(element).find('.post-author').text()).toEqual(postData.author.name);
@@ -45,7 +43,7 @@ describe('post.component tests', () => {
         expect($(element).find('.post-content').html()).toEqual(postData.content.$$unwrapTrustedValue())
     });
 
-    it('it should render the component', () => {
+    it('should render the post component with images', () => {
         postData = dbData.posts[2];
         _$scope.data = postData;
         compileComponent();
