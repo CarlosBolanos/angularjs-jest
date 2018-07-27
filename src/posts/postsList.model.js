@@ -1,3 +1,4 @@
+// only used when posts.service is in es6mode;
 class PostsListModel {
     constructor(posts){
         this.pinned = [];
